@@ -1,0 +1,19 @@
+body {
+	background-image: url("../images/body-background.jpg");
+	background-size: cover;
+	color: white;
+}
+.container-fluid {
+	text-align: center;
+}
+.game-area {
+	background-image: url("../images/game-background.jpg");
+	background-size: cover;
+	margin: 5%;
+}
+.start {
+	color: black;
+}
+.answers {
+	color: black;
+}
