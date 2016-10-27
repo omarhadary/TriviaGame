@@ -1,19 +1,62 @@
 body {
-	background-image: url("../images/body-background.jpg");
-	background-size: cover;
-	color: white;
+    background-image: url(../images/body-background.jpg);
+    background-size: cover;
+    color: #fff;
 }
+
 .container-fluid {
-	text-align: center;
+    font-family: 'Indie Flower',cursive;
+    text-align: center;
 }
+
+h1 {
+    font-family: 'Abhaya Libre',serif;
+}
+
 .game-area {
-	background-image: url("../images/game-background.jpg");
-	background-size: cover;
-	margin: 5%;
+    background-image: url(../images/game-background.jpg);
+    background-size: cover;
+    margin: 5%;
 }
+
 .start {
-	color: black;
+    color: #000;
 }
+
 .answers {
-	color: black;
+    color: #000;
+}
+
+.row {
+    margin: 2% 0 0;
+}
+
+.start-over {
+    color: #000;
+    margin: 2% 0 30%;
+}
+
+.answers-image {
+    max-height: 200px;
+    max-width: 300px;
+}
+
+.lastPage {
+    font-family: 'Pacifico',cursive;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .answers-image {
+        max-height: 50%;
+        max-width: 50%;
+        position: relative;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .answers-image {
+        max-height: 70%;
+        max-width: 70%;
+        position: relative;
+    }
 }
