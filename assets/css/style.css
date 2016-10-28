@@ -5,12 +5,12 @@ body {
 }
 
 .container-fluid {
-    font-family: 'Indie Flower',cursive;
+    font-family: 'Abhaya Libre',serif;
     text-align: center;
 }
 
 h1 {
-    font-family: 'Abhaya Libre',serif;
+    font-family: 'Indie Flower',cursive;
 }
 
 .game-area {
@@ -31,18 +31,22 @@ h1 {
     margin: 2% 0 0;
 }
 
+button {
+    width: 60%;
+}
+
 .start-over {
     color: #000;
     margin: 2% 0 30%;
 }
 
 .answers-image {
-    max-height: 200px;
-    max-width: 300px;
+    max-height: 150px;
+    max-width: 200px;
 }
 
 .lastPage {
-    font-family: 'Pacifico',cursive;
+    font-family: 'Abhaya Libre',serif;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {

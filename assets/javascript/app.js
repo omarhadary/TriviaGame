@@ -29,7 +29,7 @@ $(document).ready(function() {
             "La Reina de Los Angeles"
         ],
         image: "assets/images/old-la.gif"
-    }]
+    }];
     var time = 15;
     var followingQuestion = 0;
     var correctAnswers = 0;
@@ -41,8 +41,7 @@ $(document).ready(function() {
     // create an on click function for each of the answers
     function gameStart() {
         reset();
-        clearInterval();
-        clearTimeout();
+        clearInterval(questionCounter);
         questionCounter = setInterval(remainingTime, 1000);
         $(".time-remaining").html("Time Remaining: " + time +
             " Seconds");
@@ -55,25 +54,25 @@ $(document).ready(function() {
             0]).on("click", function() {
             clearInterval(questionCounter);
             checkAnswer(questions[followingQuestion].allAnswers[
-                0])
+                0]);
         });
         $(".answer2").show().html(questions[followingQuestion].allAnswers[
             1]).on("click", function() {
             clearInterval(questionCounter);
             checkAnswer(questions[followingQuestion].allAnswers[
-                1])
+                1]);
         });
         $(".answer3").show().html(questions[followingQuestion].allAnswers[
             2]).on("click", function() {
             clearInterval(questionCounter);
             checkAnswer(questions[followingQuestion].allAnswers[
-                2])
+                2]);
         });
         $(".answer4").show().html(questions[followingQuestion].allAnswers[
             3]).on("click", function() {
             clearInterval(questionCounter);
             checkAnswer(questions[followingQuestion].allAnswers[
-                3])
+                3]);
         });
     }
 
@@ -83,12 +82,14 @@ $(document).ready(function() {
             time--;
             // if no answer
             if (time === -1) {
+                clearInterval(questionCounter);
                 unansweredScreen();
             }
         }
         // compare the selection against the correct answer.
 
     function checkAnswer(userSelection) {
+            clearInterval(questionCounter);
             if (userSelection === questions[followingQuestion].correctAnswer) {
                 correctAnswerScreen();
             } else if (userSelection !== questions[followingQuestion].correctAnswer) {
@@ -146,17 +147,17 @@ $(document).ready(function() {
         // Once array of questions ends, then display wins, losses, unanswered and a button with onclick function to reset game
 
     function nextQuestion() {
+        clearInterval(questionCounter);
         if (followingQuestion === questions.length - 1) {
             lastPage();
         } else {
             followingQuestion++;
-            clearInterval();
             gameStart();
         }
     }
 
     function lastPage() {
-        clearInterval();
+        clearInterval(questionCounter);
         followingQuestion = 0;
         $(".time-remaining").html("Time Remaining: " + time +
             " Seconds");
@@ -171,10 +172,16 @@ $(document).ready(function() {
         $(".unanswered").html("Unanswered: " + unanswered);
         $(".answer4").hide();
         $(".start-over").show().html("Start Over?").on("click",
-            gameStart);
+            function() {
+                correctAnswers = 0;
+                incorrectAnswers = 0;
+                unanswered = 0;
+                gameStart();
+            });
     }
 
     function reset() {
+            clearInterval(questionCounter);
             time = 15;
             $(".start-over").hide();
         }
